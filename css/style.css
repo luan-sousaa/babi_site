@@ -48,8 +48,10 @@ body {
 }
 
 .nav-link {
+    color: rgba(113, 113, 113, 1);
     text-decoration: none;
-    color: #5a5a5a;
+    border-bottom: 2px solid rgba(113, 113, 113, 1);
+    padding-bottom: 3px;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 1.5px;
@@ -59,17 +61,8 @@ body {
 
 .nav-link.active,
 .nav-link:hover {
+    text-decoration: none;
     color: #8b9d88;
-}
-
-.nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #8b9d88;
 }
 
 /* Hero Section */
@@ -145,7 +138,7 @@ body {
 
 .hero-image-container {
     width: 100%;
-    max-width: 420px;
+    max-width: 430px;
     aspect-ratio: 3/4;
     border-radius: 15px;
     overflow: hidden;
