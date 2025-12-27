@@ -184,22 +184,46 @@ body {
 
 /* Responsividade */
 @media (max-width: 1024px) {
+    /* 1. O Container Principal */
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: grid;
+        /* Cria duas colunas: Texto (55%) e Imagem (45%) */
+        grid-template-columns: 1.2fr 0.8fr; 
+        align-items: center; /* Centraliza verticalmente */
+        gap: 20px; /* Espaço entre texto e imagem */
+        text-align: left; /* Garante que o texto fique alinhado à esquerda */
     }
 
+    /* 2. Reduz o Texto para caber ao lado da imagem */
     .hero-title {
-        font-size: 56px;
+        font-size: 52px; /* Reduzi de 56px para 32px para não quebrar */
+        line-height: 1.2;
     }
 
+    /* 3. Ajusta a Imagem para o lado direito */
     .hero-image-container {
-        max-width: 400px;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 280px; /* Limita o tamanho para caber na tela */
+        margin: 0; /* Remove a centralização antiga */
+        justify-self: end; /* Empurra a imagem para a direita */
     }
-
-    .nav-list {
-        gap: 30px;
+    
+    /* Garante que a foto dentro do container não estoure */
+    .hero-image-container img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .hero-content > a, /* Se for um link direto */
+    .hero-content > button, /* Se for botão */
+    .btn-container { /* Se estiver numa div */
+        grid-column: span 2; /* Ocupa as duas colunas (linha inteira de baixo) */
+        justify-self: center; /* Centraliza no meio da tela */
+        width: 80%; /* Deixa o botão bem largo como pediu */
+        max-width: 500px;
+        margin-top: 50px; /* Espaço do topo */
+        padding: 15px 30px; /* Aumenta a área de clique */
+        text-align: center;
     }
 }
 
@@ -331,7 +355,7 @@ body {
 
 /* Seção Sobre */
 .about-section {
-    background-color: #C1B9AC;
+    background-color: #c0bbb1;
     padding: 80px 40px;
     min-height: 100vh;
     display: flex;
@@ -610,7 +634,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 35px;
     align-items: start;
 }
 
@@ -631,7 +655,7 @@ body {
 .contact-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 27px;
     align-items: center;
     text-align: center;
 }
@@ -704,6 +728,19 @@ body {
 
     .contact-photo {
         max-width: 350px;
+    }
+    .contact-image img {
+        /* 1. Defina um tamanho fixo para garantir um quadrado */
+        width: 350px; 
+        height: 350px; 
+        /* 2. Garante que a imagem não distorça ao ser forçada num quadrado */
+        object-fit: cover;
+        /* 3. Arredonda as bordas para formar o círculo */
+        border-radius: 50%;
+        border: 5px solid rgba(150, 124, 94, 1);
+        box-shadow: 0 10px 15px rgba(150, 124, 94, 1);
+        display: block;
+        margin: 0 auto;
     }
 }
 
