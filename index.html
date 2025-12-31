@@ -24,10 +24,10 @@
                         <li class="nav-item"><a href="#contato" class="nav-link">CONTATO</a></li>
                     </ul>
                 </nav>
-                <button class="menu-toggle" type="button" aria-label="Abrir menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         </div>
@@ -210,6 +210,25 @@
     once: true,     /* Anima só na primeira vez (não fica repetindo ao subir/descer) */
     offset: 50,     /* Começa a animar um pouco antes do elemento aparecer */
   });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.classList.toggle('is-open');
+            nav.classList.toggle('is-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', isOpen.toString());
+        });
+
+        nav.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('is-open');
+                nav.classList.remove('is-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 </script>
 </body>
 </html>

@@ -90,6 +90,7 @@ body {
     height: 2px;
     background: rgba(113, 113, 113, 1);
     border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
 /* Hero Section */
